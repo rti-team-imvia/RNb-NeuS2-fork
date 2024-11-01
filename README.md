@@ -40,10 +40,12 @@ cd RNb-NeuS2
 ### dvd(2024/11/01) Build on cluster
 ```bash
 # Use cluster modules
-module load cmake/3.23.0/gcc/11.2.0/module-c6iou3j
+module load git-lfs/3.1.2/gcc/11.2.0
+module load cmake/3.23.0/gcc/11.2.0
 module load python/3.11/anaconda/2024.02
-module load gcc/11.2.0/gcc/4.8.5/module-g75x5bh
-module load 4) cuda/10.2
+module load gcc/11.2.0/gcc/4.8.5
+module load pytorch/2.0.0/gpu
+module load cuda/12.4.1
 
 # Python
 python -m venv .venv # Create environment
@@ -51,7 +53,15 @@ source .venv/bin/activate # Activate environment
 /work/imvia/de1450bo/repos/RNb-NeuS2-fork/.venv/bin/python -m pip install --upgrade pip
 /work/imvia/de1450bo/repos/RNb-NeuS2-fork/.venv/bin/pip install argparse opencv-python-headless
 
+mkdir build; cd build # Create and enter to the build folder
+cmake ..
+make
 ```
+
+# Copy data to experiments (Example)
+mkdir .data # Create .data folder inside RNb-NeuS2 repository
+cp -r /work/imvia/de1450bo/repos/RNb-NeuS-fork/data/bearPNG/ /work/imvia/de1450bo/repos/RNb-NeuS2-fork/.data/
+# Preprocess
 
 
 ### Authors
