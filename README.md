@@ -37,6 +37,25 @@ git clone https://github.com/RobinBruneau/RNb-NeuS2/
 cd RNb-NeuS2
 ```
 
+### dvd(2024/11/01) Build on cluster
+```bash
+# Use cluster modules
+module load cmake/3.23.0/gcc/11.2.0/module-c6iou3j
+module load python/3.11/anaconda/2024.02
+module load gcc/11.2.0/gcc/4.8.5/module-g75x5bh
+module load 4) cuda/10.2
+
+# Python
+python -m venv .venv # Create environment
+source .venv/bin/activate # Activate environment
+/work/imvia/de1450bo/repos/RNb-NeuS2-fork/.venv/bin/python -m pip install --upgrade pip
+/work/imvia/de1450bo/repos/RNb-NeuS2-fork/.venv/bin/pip install argparse opencv-python-headless
+
+```
+
+
+### Authors
+
 Build the project using CMake:
 ```bash
 cmake . -B build
